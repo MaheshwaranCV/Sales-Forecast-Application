@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>DigiVerz Project</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="green lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Maheshwaran C V</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center green-text">Sales Prediction</h1>
+      <div class="row center">
+        <h5 class="header col s12">Using Python Machine Learning
+        <br>
+        <br>
+        </h5>
+      </div>
+      <div class="row center">
+        <form action='/upload' method="post" class="col s4" enctype="multipart/form-data">
+          <div class="input-field">
+            <label for="first_name"><b>Recordset</b></label>
+              <br><br>
+              <input placeholder="Upload the dataset" name="Recordset" id="first_name" type="file" class="validate">
+          </div>
+          <button type="upload" class="btn-large waves-effect waves-light green">Upload</button>
+        </form>      
+
+        <form action='/predict' method="post" class="col s4" enctype="multipart/form-data">
+          <div class="input-field">
+            <label for="last_name"><b>Duration </b></label>
+              <br>
+              <input id="last_name" name="Duration" placeholder="Enter duration (Num)"  type="number" class="validate">
+          </div>
+          <button type="submit" class="btn-large waves-effect waves-light green">Predict Sales</button>          
+        </form>      
+
+        <form action='/plot' method="post" class="col s4" enctype="multipart/form-data">
+          <div class="input-field">
+            <label for="_name"><b>Type</b></label>
+            <br>
+            <input id="_name" name="Type" placeholder="Weeks/Months/Years (W/M/Y)"  type="text" class="validate">
+          </div>
+          <!-- <button type="plot" class="btn-large waves-effect waves-light green">Plot</button> -->
+        </form>
+
+      </div> 
+      <br>
+      <div class="card-panel grey lighten-5 z-depth-1x">
+        <p>{{pred}}</p>
+      </div>
+    </div>
+    
+  </div>
+
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var drop = document.querySelectorAll('.dropdown-trigger')
+      M.Dropdown.init(drop,{autoTrigger:True});
+    })
+  </script>
+
+  </body>
+</html>
+
